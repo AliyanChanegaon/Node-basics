@@ -15,25 +15,26 @@ const app = express();
 
 // I can also check if my api key exist or not 
 
-app.use((req, res, next) => {
-   if(!req.query.apiKey){
-      return res.status(401).send("Please provide API key");
-   }
-   // here if in query param i provide query by name apiKey=anything it will give status 200 else it will return status 400
+// app.use((req, res, next) => {
+//    if(!req.query.apiKey){
+//       return res.status(401).send("Please provide API key");
+//    }
+//    // here if in query param i provide query by name apiKey=anything it will give status 200 else it will return status 400
    
-      next();
+//       next();
       
  
-    // Don't forget to call next() to pass control to the next middleware or route handler.Suppose you have another middleware next will call that middleware else it will call "/" route 
- });
+//     // Don't forget to call next() to pass control to the next middleware or route handler.Suppose you have another middleware next will call that middleware else it will call "/" route 
+//  });
+
 
 
 // Middleware should be always first as it is the entry pass for our server
 
 
-app.use("/",(req,res)=>{
-res.send("Welcome")
-})
+// app.use("/",(req,res)=>{
+// res.send("Welcome")
+// })
 
 
 app.use("/product",productRoutes);
